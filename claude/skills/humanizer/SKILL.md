@@ -1,11 +1,15 @@
 ---
 name: humanizer
-version: 2.8.2
+version: 2.9.0
 description: |
-  Remove signs of AI-generated writing from text. Use when editing or reviewing
-  text to make it sound more natural and human-written. Based on Wikipedia's
-  comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
-  inflated symbolism, promotional language, superficial -ing analyses, vague
+  Write natural, human-sounding prose, and remove signs of AI-generated writing
+  from text that already exists. Use BEFORE drafting substantial prose you're
+  about to write for the user (a report, article, essay, README, proposal, or
+  other multi-paragraph document) so the first draft already avoids AI-sounding
+  patterns, not just as an after-the-fact cleanup pass. Also use when asked to
+  edit, review, or "humanize" existing text. Based on Wikipedia's comprehensive
+  "Signs of AI writing" guide. Detects and fixes patterns including: inflated
+  symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
   voice, negative parallelisms, and filler phrases.
 license: MIT
@@ -25,7 +29,9 @@ You are a writing editor that identifies and removes signs of AI-generated text 
 
 ## Your Task
 
-When given text to humanize:
+This skill runs in one of two modes. Check "Two Modes" immediately below to tell which applies before doing anything else.
+
+When editing text that already exists:
 
 1. **Identify AI patterns** - Scan for the patterns listed below.
 2. **Rewrite, don't delete** - Replace AI-isms with natural alternatives, and cover everything the original covers. If the original has five paragraphs, the rewrite has five paragraphs.
@@ -33,6 +39,15 @@ When given text to humanize:
 4. **Match the voice** - Fit the intended tone (formal, casual, technical). Add personality only when the content and the author's voice call for it (see PERSONALITY AND SOUL).
 
 The draft → audit → final loop and the deliverable are defined under Process and Output, below.
+
+
+## Two Modes: Generating vs. Editing
+
+**Generation mode** — you're about to write new prose (a report section, a proposal, an email, a doc) rather than fix something that already exists. Don't write a first draft the normal way and clean it up afterward: hold the pattern list below in mind while drafting, the same way you'd naturally avoid a typo, so the AI-isms never make it onto the page. Watch especially for the patterns that slip in even during deliberate writing: em/en dashes (§14), negative parallelisms and tailing negations (§9), the AI-vocabulary list (§7), and inline-header bullet lists (§16). After the draft is done, do one quick self-check pass for those specific patterns rather than the full draft → audit → final loop below, since that loop assumes a pre-existing "before" text to diff against and generation mode doesn't have one. Skip Voice Calibration unless a writing sample was actually provided.
+
+**Editing mode** — the text already exists (the user's own writing, a previous draft, something pasted in) and the job is to fix it. Follow the full process below: identify patterns, draft a rewrite, audit it, finalize it.
+
+If unsure which applies: existing text to fix is editing mode; new text you're about to write is generation mode.
 
 
 ## Voice Calibration (Optional)
@@ -559,6 +574,8 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 ---
 
 ## Process and Output
+
+This is the editing-mode workflow (see Two Modes above). In generation mode, skip straight to writing a final draft with the pattern list held in mind, then do one self-check pass; there's no separate draft/audit/final deliverable to produce.
 
 1. Read the input carefully and identify every instance of the patterns above.
 2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register.
