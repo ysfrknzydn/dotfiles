@@ -5,3 +5,7 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
 export PATH
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/yusuf/.local/bin:$PATH"
